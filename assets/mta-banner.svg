@@ -1,1 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="300" viewBox="0 0 1100 300" role="img" aria-label="MTA Portugal — recursos e ferramentas por NexysT"><defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#091b22"/><stop offset="1" stop-color="#102d31"/></linearGradient><linearGradient id="accent"><stop stop-color="#36d6a6"/><stop offset="1" stop-color="#78a9ee"/></linearGradient></defs><rect width="1100" height="300" rx="20" fill="url(#bg)"/><rect x="34" y="34" width="1032" height="232" rx="13" fill="none" stroke="#2b6f6b" stroke-width="1.5"/><path d="M55 245H1045" stroke="#36d6a6" stroke-opacity=".5"/><circle cx="930" cy="151" r="86" fill="none" stroke="#36d6a6" stroke-opacity=".20" stroke-width="16"/><circle cx="930" cy="151" r="50" fill="none" stroke="#78a9ee" stroke-opacity=".27" stroke-width="9"/><path d="M886 151h88m-44-44v88" stroke="#36d6a6" stroke-width="3" stroke-opacity=".75"/><text x="68" y="112" font-family="Segoe UI,Arial,sans-serif" font-size="18" letter-spacing="6" fill="#36d6a6">NEXYST · MTA PORTUGAL</text><text x="65" y="179" font-family="Segoe UI,Arial,sans-serif" font-weight="700" font-size="58" fill="white">MTA RESOURCES</text><text x="68" y="221" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#a7c6c3">Lua · administração · ferramentas · experiências de jogo</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" preserveAspectRatio="xMidYMid meet" role="img" aria-label="MTA Portugal — recursos para Multi Theft Auto por NexysT">
+  <defs>
+    <linearGradient id="fundo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1b22"/>
+      <stop offset="100%" stop-color="#123036"/>
+    </linearGradient>
+    <linearGradient id="faixa" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#36d6a6"/>
+      <stop offset="100%" stop-color="#7aabeb"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="320" rx="22" fill="url(#fundo)"/>
+  <rect x="37" y="35" width="1126" height="250" rx="15" fill="none" stroke="#326663" stroke-width="1.5"/>
+  <rect x="65" y="66" width="7" height="183" rx="3.5" fill="url(#faixa)"/>
+  <text x="98" y="105" fill="#36d6a6" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="600" letter-spacing="3">MTA PORTUGAL  /  NEXYST</text>
+  <text x="94" y="177" fill="#f1f7f7" font-family="Segoe UI, Arial, sans-serif" font-size="61" font-weight="700">Recursos para MTA</text>
+  <text x="97" y="222" fill="#aacac9" font-family="Segoe UI, Arial, sans-serif" font-size="21">Painéis, ferramentas e sistemas para Multi Theft Auto</text>
+  <rect x="952" y="93" width="153" height="130" rx="14" fill="#153a3d" stroke="#397b76" stroke-width="1.5"/>
+  <text x="1028.5" y="170" text-anchor="middle" fill="#e6f5f1" font-family="Segoe UI, Arial, sans-serif" font-size="48" font-weight="700" letter-spacing="3">MTA</text>
+  <text x="1028.5" y="198" text-anchor="middle" fill="#36d6a6" font-family="Segoe UI, Arial, sans-serif" font-size="14" letter-spacing="3">PORTUGAL</text>
+  <path d="M66 265H1133" stroke="url(#faixa)" stroke-opacity=".62" stroke-width="2"/>
+</svg>

@@ -1,0 +1,277 @@
+<messages>
+   
+
+
+
+
+
+
+
+
+
+
+  <player>
+    <group action="ban" r="255" g="0" b="0">
+      <all>$player foi banido$by_admin_4all. $data2</all>
+      <log>ADMIN: $admin baniu $player $data $data2</log>
+    </group>
+    <group action="kick" r="255" g="0" b="0">
+      <all>$player foi expulso$by_admin_4all.</all>
+      <log>ADMIN: $admin expulsou $player $data</log>
+    </group>
+    <group action="mute" r="255" g="0" b="0">
+      <all>$player foi silenciado$by_admin_4all. $data2</all>
+      <log>ADMIN: $admin silenciou $player $data $data2</log>
+    </group>
+	<group action="setnick" r="255" g="0" b="0">
+      <log>ADMIN: o nome de $player foi alterado para $data2$by_admin_4all.</log>
+    </group>
+    <group action="unmute" r="0" g="255" b="100">
+      <all>A voz de $player foi reativada$by_admin_4all.</all>
+      <log>ADMIN: $admin reativou a voz de $player</log>
+    </group>
+    <group action="freeze" r="255" g="0" b="0">
+      <admin>$player foi imobilizado$by_admin_4all.</admin>
+      <player>Foste imobilizado$by_admin_4plr.</player>
+      <log>ADMIN: $admin imobilizou $player</log>
+    </group>
+    <group action="unfreeze" r="0" g="255" b="100">
+      <admin>$player deixou de estar imobilizado$by_admin_4all.</admin>
+      <player>Deixaste de estar imobilizado$by_admin_4plr.</player>
+      <log>ADMIN: $admin desimobilizou $player</log>
+    </group>
+    <group action="slap" r="235" g="20" b="200">
+      <all>Foi retirada vida a $player$by_admin_4all. ($data HP)</all>
+      <log>ADMIN: $admin retirou $data HP a $player</log>
+    </group>
+    <group action="shout" r="255" g="100" b="30">
+      <admin>Enviaste um aviso a $player</admin>
+    </group>
+    <group action="sethealth" r="0" g="170" b="170">
+      <admin>A vida de $player foi alterada para $data</admin>
+      <player>A tua vida foi alterada para $data$by_admin_4plr.</player>
+      <log>ADMIN: $admin alterou a vida de $player para $data</log>
+    </group>
+    <group action="setarmour" r="122" g="122" b="122">
+      <admin>O colete de $player foi alterado para $data</admin>
+      <player>O teu colete foi alterado para $data$by_admin_4plr.</player>
+      <log>ADMIN: $admin alterou o colete de $player para $data</log>
+    </group>
+    <group action="setmoney" r="225" g="170" b="90">
+      <admin>O dinheiro de $player foi definido para $data</admin>
+      <player>O teu dinheiro foi definido para $data$by_admin_4plr.</player>
+      <log>ADMIN: $admin definiu o dinheiro de $player para $data</log>
+    </group>
+    <group action="setskin" r="255" g="122" b="0">
+      <admin>A aparência de $player foi alterada para $data</admin>
+      <player>A tua aparência foi alterada para $data$by_admin_4plr.</player>
+      <log>ADMIN: $admin alterou a aparência de $player para $data</log>
+    </group>
+    <group action="setteam" r="255" g="255" b="0">
+      <admin>$player foi transferido para a equipa $data.</admin>
+      <player>Foste transferido para a equipa $data$by_admin_4plr.</player>
+      <log>ADMIN: $admin transferiu $player para a equipa $data</log>
+    </group>
+	<group action="removefromteam" r="255" g="255" b="0">
+      <admin>$player foi retirado da equipa $data.</admin>
+      <player>Foste retirado da equipa $data$by_admin_4plr.</player>
+      <log>ADMIN: $admin retirou $player da equipa $data</log>
+    </group>
+    <group action="setinterior" r="0" g="255" b="0">
+      <admin>$player foi movido para o interior $data.</admin>
+      <player>Foste movido para o interior $data$by_admin_4plr.</player>
+      <log>ADMIN: $admin moveu $player para o interior $data</log>
+    </group>
+    <group action="setdimension" r="0" g="255" b="0">
+      <admin>$player foi movido para a dimensão $data.</admin>
+      <player>Foste movido para a dimensão $data$by_admin_4plr.</player>
+      <log>ADMIN: $admin moveu $player para a dimensão $data</log>
+    </group>
+    <group action="setstat" r="255" g="122" b="0">
+      <admin>O atributo $data de $player foi definido para $data2</admin>
+      <player>O teu atributo $data foi definido para $data2$by_admin_4plr.</player>
+      <log>ADMIN: $admin alterou o atributo $data de $player para $data2</log>
+    </group>
+    <group action="jetpackr" r="255" g="0" b="0">
+      <admin>O jetpack de $player foi retirado</admin>
+      <player>O teu jetpack foi retirado$by_admin_4plr.</player>
+      <log>ADMIN: $admin retirou o jetpack de $player</log>
+    </group>
+    <group action="jetpacka" r="255" g="122" b="0">
+      <admin>Foi atribuído um jetpack a $player</admin>
+      <player>Recebeste um jetpack$by_admin_4plr.</player>
+      <log>ADMIN: $admin atribuiu um jetpack a $player</log>
+    </group>
+    <group action="adminr" r="255" g="0" b="0">
+      <admin>Foram revogadas as permissões administrativas de $player</admin>
+      <player>As tuas permissões administrativas foram revogadas$by_admin_4plr.</player>
+      <log>ADMIN: $admin revogou as permissões administrativas de $player</log>
+    </group>
+    <group action="admina" r="0" g="255" b="0">
+      <admin>$player recebeu permissões administrativas</admin>
+      <player>Recebeste permissões administrativas$by_admin_4plr.</player>
+      <log>ADMIN: $admin concedeu permissões administrativas a $player</log>
+    </group>
+    <group action="givevehicle" r="0" g="255" b="0">
+      <admin>Foi atribuído um veículo '$data' a $player</admin>
+      <player>Recebeste um veículo '$data'$by_admin_4plr.</player>
+      <log>ADMIN: $admin atribuiu um veículo '$data' a $player </log>
+    </group>
+    <group action="giveweapon" r="0" g="0" b="255">
+      <admin>Foi atribuída a arma '$data' ($data2) a $player</admin>
+      <player>Recebeste a arma '$data' ($data2)$by_admin_4plr.</player>
+      <log>ADMIN: $admin atribuiu a arma '$data' a $player</log>
+    </group>
+    <group action="warp" r="0" g="200" b="50">
+      <admin>Foste teletransportado para $player</admin>
+      <log>ADMIN: $admin teletransportou-se para $player</log>
+    </group>
+    <group action="warpto" r="0" g="200" b="50">
+      <admin>$player foi teletransportado para $data</admin>
+      <player>Foste teletransportado para $data$by_admin_4plr.</player>
+      <log>ADMIN: $admin moveu $player para $data</log>
+    </group>
+  </player>
+  <team>
+    <group action="createteam" r="225" g="170" b="90">
+      <admin>Equipa '$data' criada com sucesso</admin>
+      <log>ADMIN: $admin criou a equipa '$data'</log>
+    </group>
+    <group action="destroyteam" r="225" g="170" b="90">
+      <admin>Equipa '$data' eliminada com sucesso</admin>
+      <log>ADMIN: $admin eliminou a equipa '$data'</log>
+    </group>
+  </team>
+  <vehicle>
+    <group action="repair" r="0" g="255" b="0">
+      <admin>O veículo de $player foi reparado</admin>
+      <player>O teu veículo foi reparado$by_admin_4plr.</player>
+      <log>ADMIN: $admin reparou o veículo de $player</log>
+    </group>
+    <group action="blowvehicle" r="255" g="0" b="0">
+      <admin>O veículo de $player explodiu</admin>
+      <player>O teu veículo explodiu$by_admin_4plr.</player>
+      <log>ADMIN: $admin fez explodir o veículo de $player</log>
+    </group>
+    <group action="destroyvehicle" r="255" g="0" b="0">
+      <admin>O veículo de $player foi destruído</admin>
+      <player>O teu veículo foi destruído$by_admin_4plr.</player>
+      <log>ADMIN: $admin destruiu o veículo de $player</log>
+    </group>
+    <group action="customize" r="225" g="170" b="90">
+      <admin>O veículo de $player recebeu melhorias ($data)</admin>
+      <player>O teu veículo recebeu melhorias$by_admin_4plr.</player>
+      <log>ADMIN: $admin aplicou melhorias ao veículo de $player ($data)</log>
+    </group>
+    <group action="customizer" r="225" g="170" b="90">
+      <admin>Foram retiradas as melhorias do veículo de $player.</admin>
+      <player>Foram retiradas as melhorias do teu veículo$by_admin_4plr.</player>
+      <log>ADMIN: $admin retirou as melhorias do veículo de $player</log>
+    </group>
+    <group action="setpaintjob" r="225" g="170" b="90">
+      <admin>A pintura do veículo de $player foi definida para $data</admin>
+      <player>A pintura do teu veículo foi definida para $data$by_admin_4plr.</player>
+      <log>ADMIN: $admin definiu a pintura do veículo de $player para $data</log>
+    </group>
+    <group action="setcolor" r="225" g="170" b="90">
+      <admin>A cor do veículo de $player foi alterada</admin>
+      <player>A cor do teu veículo foi alterada$by_admin_4plr.</player>
+      <log>ADMIN: $admin alterou a cor do veículo de $player</log>
+    </group>
+	<group action="setlights" r="225" g="170" b="90">
+      <admin>A cor das luzes do veículo de $player foi alterada</admin>
+      <player>A cor das luzes do teu veículo foi alterada$by_admin_4plr.</player>
+      <log>ADMIN: $admin alterou a cor das luzes do veículo de $player</log>
+    </group>
+	<group action="setplates" r="225" g="170" b="90">
+      <admin>A matrícula do veículo de $player foi alterada para '$data'</admin>
+      <player>A matrícula do teu veículo foi alterada para '$data'$by_admin_4plr</player>
+      <log>ADMIN: $admin alterou a matrícula do veículo de $player para '$data'</log>
+    </group>
+  </vehicle>
+  <resource>
+
+  </resource>
+  <server>
+    <group action="setgame" r="225" g="170" b="90">
+      <admin>O modo de jogo ASE foi alterado para '$data'</admin>
+      <log>ADMIN: $admin alterou o modo de jogo ASE para '$data'</log>
+    </group>
+    <group action="setmap" r="225" g="170" b="90">
+      <admin>O mapa ASE foi alterado para '$data'</admin>
+      <log>ADMIN: $admin alterou o mapa ASE para '$data'</log>
+    </group>
+    <group action="setwelcome" r="225" g="170" b="90">
+      <admin>A mensagem de boas-vindas foi definida como '$data'</admin>
+      <log>ADMIN: $admin definiu a mensagem de boas-vindas como '$data'</log>
+    </group>
+    <group action="resetwelcome" r="225" g="170" b="90">
+      <admin>A mensagem de boas-vindas foi reposta</admin>
+      <log>ADMIN: $admin repôs a mensagem de boas-vindas</log>
+    </group>
+    <group action="setpassword" r="225" g="170" b="90">
+      <admin>Palavra-passe do servidor definida como '$data'</admin>
+      <log>ADMIN: $admin definiu a palavra-passe do servidor como '$data'</log>
+    </group>
+    <group action="resetpassword" r="225" g="170" b="90">
+      <admin>A palavra-passe do servidor foi removida</admin>
+      <log>ADMIN: $admin removeu a palavra-passe do servidor</log>
+    </group>
+    <group action="settime" r="225" g="170" b="90">
+      <all>A hora foi alterada para $data$by_admin_4all.</all>
+      <log>ADMIN: $admin alterou a hora para $data</log>
+    </group>
+    <group action="setweather" r="225" g="170" b="90">
+      <all>Meteorologia alterada para '$data'$by_admin_4all.</all>
+      <log>ADMIN: $admin definiu a meteorologia para '$data'</log>
+    </group>
+    <group action="blendweather" r="225" g="170" b="90">
+      <admin>A iniciar a transição da meteorologia para '$data'</admin>
+      <log>ADMIN: $admin iniciou a transição da meteorologia para '$data'</log>
+    </group>
+    <group action="setgravity" r="225" g="170" b="90">
+      <all>Gravidade definida para '$data'$by_admin_4all.</all>
+      <log>ADMIN: $admin definiu a gravidade para $data</log>
+    </group>
+    <group action="setgamespeed" r="225" g="170" b="90">
+      <all>Velocidade do jogo definida para '$data'$by_admin_4all.</all>
+      <log>ADMIN: $admin definiu a velocidade do jogo para '$data'</log>
+    </group>
+    <group action="setwaveheight" r="225" g="170" b="90">
+      <all>Altura das ondas definida para '$data'$by_admin_4all.</all>
+      <log>ADMIN: $admin definiu a altura das ondas para '$data'</log>
+    </group>
+    <group action="setblurlevel" r="225" g="170" b="90">
+      <all>Nível de desfocagem definido para '$data'$by_admin_4all.</all>
+      <log>ADMIN: $admin definiu o nível de desfocagem para '$data'</log>
+    </group>
+    <group action="clearchat" r="225" g="170" b="90">
+      <all>Chat limpo$by_admin_4all.</all>
+      <log>ADMIN: $admin limpou o chat.</log>
+    </group>
+    <group action="setfpslimit" r="225" g="170" b="90">
+      <all>Limite de FPS definido para '$data'$by_admin_4all.</all>
+      <log>ADMIN: $admin definiu o limite de FPS para '$data'</log>
+    </group>
+  </server>
+  <bans>
+
+  </bans>
+  <admin>
+    <group action="create" r="225" g="170" b="90">
+      <admin>$data foi criado com sucesso</admin>
+      <log>ADMIN: $data foi criado por $admin</log>
+    </group>
+    <group action="destroy" r="225" g="170" b="90">
+      <admin>$data foi eliminado com sucesso</admin>
+      <log>ADMIN: $data foi eliminado por $admin</log>
+    </group>
+    <group action="password" r="50" g="255" b="50">
+      <admin>A tua palavra-passe foi alterada com sucesso para '$data'</admin>
+    </group>
+    <group action="settings" r="225" g="170" b="90">
+      <admin>Definição '$data' alterada para '$data2'</admin>
+      <log>ADMIN: definição '$data' alterada para '$data2' por $admin</log>
+    </group>
+  </admin>
+</messages>

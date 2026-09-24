@@ -1,0 +1,18 @@
+<stats>
+  <stat id="69" name="Perícia com pistola" />
+  <stat id="70" name="Perícia com pistola silenciada" />
+  <stat id="71" name="Perícia com Desert Eagle" />
+  <stat id="72" name="Perícia com caçadeira" />
+  <stat id="73" name="Perícia com caçadeira de canos serrados" />
+  <stat id="74" name="Perícia com SPAS-12" />
+  <stat id="75" name="Perícia com Uzi" />
+  <stat id="76" name="Perícia com MP5" />
+  <stat id="77" name="Perícia com AK-47" />
+  <stat id="78" name="Perícia com M4" />
+  <stat id="79" name="Perícia com espingarda de precisão" />
+
+  <stat id="21" name="Gordura" />
+  <stat id="22" name="Resistência" />
+  <stat id="23" name="Músculos" />
+  <stat id="24" name="Vida" />
+</stats>

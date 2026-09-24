@@ -1,0 +1,8 @@
+<menu>
+  <item section="Geral"    page="server\http\accounts.htm"   icon="server\http\images\accounts.png" name="Gerir contas" alt="Gerir contas de administradores" />
+  <item section="Geral"    page="server\http\access.htm"     icon="server\http\images\access.png"   name="Registo de acessos" alt="Consultar o registo de acessos administrativos" />
+  <item section="Servidor"  page="server\http\players.htm"    icon="server\http\images\players.png"  name="Jogadores" alt="Gerir jogadores ligados ao servidor" />
+  <item section="Servidor"  page="server\http\server.htm"     icon="server\http\images\server.png"   name="Definições do servidor" alt="Configurar opções do servidor" />
+  <item section="Servidor"  page="server\http\bans.htm"       icon="server\http\images\bans.png"     name="Gerir banimentos" alt="Gerir banimentos do servidor" />
+  <item section="Diversos"   page="server\http\manual.htm"     icon="server\http\images\manual.png"   name="Manual" alt="Manual de administração" />
+</menu>

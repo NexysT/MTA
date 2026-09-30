@@ -1,3 +1,5 @@
+[Português (PT-PT) →](./TROUBLESHOOTING.pt-PT.md)
+
 # Troubleshooting
 
 ## `/playerbots` does nothing

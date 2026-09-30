@@ -5,7 +5,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/MTA-San_Andreas-36d6a6?style=flat-square&labelColor=102722" alt="Multi Theft Auto: San Andreas">
   <img src="https://img.shields.io/badge/LUA-Recursos-7aabeb?style=flat-square&labelColor=102722" alt="Lua">
-  <img src="https://img.shields.io/badge/IDIOMA-PT--PT-36d6a6?style=flat-square&labelColor=102722" alt="Português de Portugal">
+  <img src="https://img.shields.io/badge/IDIOMA-PT--PT-36d6a6?style=flat-square&labelColor=102722" alt="PT-PT">
   <a href="https://github.com/NexysT"><img src="https://img.shields.io/badge/GITHUB-NexysT-7aabeb?style=flat-square&labelColor=102722" alt="Perfil de NexysT"></a>
 </p>
 
@@ -43,7 +43,7 @@ Projeto open-source para apresentar **jogadores virtuais no browser público do 
 
 É uma versão adaptada do painel `admin` do MTA, com as funcionalidades tradicionais e algumas coisas que me faziam falta no dia a dia:
 
-- Interface em português de Portugal, com menus e botões ajustados ao espaço do painel.
+- Interface em PT-PT, com menus e botões ajustados ao espaço do painel.
 - Consulta de jogadores, ações administrativas, recursos, mapas, banimentos e opções do servidor.
 - **Depuração:** uma aba para acompanhar avisos, erros e mensagens recebidas pelo painel, sem andar sempre a trocar de janela.
 - **Comandos:** selecionas um resource e consultas os comandos que estão registados.

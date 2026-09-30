@@ -12,13 +12,13 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/MTA-San_Andreas-36d6a6?style=flat-square&labelColor=102722" alt="MTA:SA">
-  <img src="https://img.shields.io/badge/IDIOMA-PT--PT-7aabeb?style=flat-square&labelColor=102722" alt="Português de Portugal">
+  <img src="https://img.shields.io/badge/IDIOMA-PT--PT-7aabeb?style=flat-square&labelColor=102722" alt="PT-PT">
   <img src="https://img.shields.io/badge/SCRIPTS-Lua_compilado-36d6a6?style=flat-square&labelColor=102722" alt="Scripts Lua compilados">
 </p>
 
 O `admin` é aquele painel de que precisas quando estás a tomar conta de um servidor MTA: consultar um jogador, expulsar alguém, verificar os banimentos, reiniciar um resource ou alterar uma opção do servidor. O painel original já fazia muita coisa. O problema é que, para o que eu queria no MTA Portugal, faltavam-lhe algumas ferramentas e a interface em inglês já não fazia muito sentido.
 
-Fui mantendo a base do recurso e trabalhando por cima dela: tradução para português de Portugal, ajustes visuais e novas abas para depuração, comandos e permissões de staff. A intenção é conseguires resolver mais coisas a partir do mesmo painel, sem ter de andar constantemente entre a consola, os scripts e a gestão ACL antiga.
+Fui mantendo a base do recurso e trabalhando por cima dela: tradução para PT-PT, ajustes visuais e novas abas para depuração, comandos e permissões de staff. A intenção é conseguires resolver mais coisas a partir do mesmo painel, sem ter de andar constantemente entre a consola, os scripts e a gestão ACL antiga.
 
 **Se só queres instalar, podes ir diretamente para [Como instalar](#como-instalar).** Se queres perceber primeiro o que mudou, continua a ler.
 
@@ -172,4 +172,4 @@ A coleção oficial é publicada sob licença **MIT**, cujo texto e aviso de atr
 <p align="center">
   <a href="../README.md"><strong>← Ver os outros recursos do MTA Portugal</strong></a>
 </p>
-<p align="center"><sub>MTA Portugal · NexysT · Português de Portugal</sub></p>
+<p align="center"><sub>MTA Portugal · NexysT</sub></p>

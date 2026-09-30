@@ -73,3 +73,15 @@ PlayerBots never removes real players. Once the real-player count itself exceeds
 ## The browser cache looks stale
 
 Refresh the server browser or query the server again. ASE replies are cached by MTA for short intervals, so a just-changed configuration may not be visible in the same frame.
+
+
+---
+
+## Support and bug reports
+
+For bugs, build incompatibilities or documentation questions:
+
+- open an issue at [github.com/NexysT/MTA/issues](https://github.com/NexysT/MTA/issues) with `[PlayerBots]` at the beginning of the title;
+- or contact **Nexys.Tuga** on Discord: `nobody_0101010101001`.
+
+For native-module problems, include the operating system, architecture, MTA server version, SHA-256 of `net.dll` / `net.so`, and the relevant console output.

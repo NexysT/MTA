@@ -23,6 +23,22 @@ Começo pelo painel de administração, que foi o recurso que andei a alterar: t
 
 ## O que já está aqui?
 
+
+### [PlayerBots →](./PlayerBots/)
+
+Projeto open-source para apresentar **jogadores virtuais no browser público do MTA** sem criar ligações reais ao servidor.
+
+- Contagem pública coerente: jogadores reais + virtuais.
+- Nomes virtuais visíveis na lista do browser.
+- Painel CEF com nomes aleatórios, específicos ou personalizados.
+- Modo de substituição dinâmica: jogadores reais podem substituir bots um a um.
+- Código-fonte Lua + C++ para **Windows x86** e **Linux x64**.
+- Documentação técnica sobre ASE, EYE2, `PingStatus`, compatibilidade e portabilidade entre builds.
+
+**[Abrir o PlayerBots, ver o código e seguir a instalação →](./PlayerBots/)**
+
+---
+
 ### [Painel Administração | MTA Portugal →](./Painel-Administracao-MTA-Portugal/)
 
 É uma versão adaptada do painel `admin` do MTA, com as funcionalidades tradicionais e algumas coisas que me faziam falta no dia a dia:
@@ -40,7 +56,7 @@ Começo pelo painel de administração, que foi o recurso que andei a alterar: t
 
 ## Quero descarregar um recurso. Onde carrego?
 
-Se só queres experimentar o painel, começa pela [página do Admin](./Painel-Administracao-MTA-Portugal/). Tens lá a estrutura dos ficheiros, a instalação passo a passo e os cuidados a ter com as permissões.
+Se queres experimentar um recurso, abre primeiro a respetiva página. O [PlayerBots](./PlayerBots/) inclui código-fonte, builds por plataforma e documentação técnica; o [Painel Administração](./Painel-Administracao-MTA-Portugal/) inclui a estrutura, a instalação e os cuidados com permissões.
 
 No GitHub, também podes usar o botão verde **Code → Download ZIP**. Esse botão descarrega **o repositório inteiro**, não só o painel. Depois de extraires, entra em `Painel-Administracao-MTA-Portugal/admin/`: é essa pasta `admin` que interessa ao servidor MTA.
 

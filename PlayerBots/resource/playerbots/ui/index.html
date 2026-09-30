@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PlayerBots | Nexys.Tuga</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="shell">
+  <header>
+    <div class="mark">P</div>
+    <div>
+      <div class="eyebrow">PLAYERBOTS • NEXYS.TUGA</div>
+      <h1>Gestão de jogadores virtuais</h1>
+    </div>
+    <button id="close" class="ghost" aria-label="Fechar">✕</button>
+  </header>
+
+  <div id="notice" role="status" class="notice hidden"></div>
+
+  <div class="alert">
+    <strong>ℹ PlayerBots ativo no browser público do MTA</strong>
+    <p>Os jogadores virtuais aparecem na contagem e na lista do browser sem criarem ligações reais ao servidor.</p>
+  </div>
+
+  <section class="metrics">
+    <article><span>JOGADORES REAIS</span><strong id="real">—</strong><small>Ligações reais</small></article>
+    <article><span>JOGADORES VIRTUAIS</span><strong id="bots">—</strong><small>Apresentados agora</small></article>
+    <article><span>TOTAL PÚBLICO</span><strong id="total">—</strong><small>Browser MTA</small></article>
+    <article><span>CAPACIDADE</span><strong id="max">—</strong><small>Slots do servidor</small></article>
+  </section>
+
+  <section class="columns">
+    <article class="panel">
+      <div class="flex">
+        <div><h2>Estado do sistema</h2><p>Estado atual do resource e do módulo nativo.</p></div>
+        <span id="status" class="pill">A aguardar...</span>
+      </div>
+      <div class="datum"><span>Módulo nativo</span><b id="native">—</b></div>
+      <div class="datum"><span>Bots configurados</span><b id="configured">—</b></div>
+      <div class="datum"><span>Bots apresentados</span><b id="moduleCount">—</b></div>
+      <div class="datum"><span>Contagem pública</span><b id="publicCount">—</b></div>
+      <button id="refresh" class="secondary">↻ Atualizar estado</button>
+    </article>
+
+    <article class="panel">
+      <h2>Configuração</h2>
+      <p>Controla a quantidade, os nomes e a substituição automática.</p>
+
+      <label class="check"><input type="checkbox" id="enabled"><span>Ativar PlayerBots</span></label>
+
+      <label for="target">Quantidade de bots <b id="targetValue">0</b></label>
+      <input type="range" id="target" min="0" max="32" value="0">
+
+      <label for="nameModeButton">Origem dos nomes</label>
+      <div id="nameModeControl" class="modeSelect">
+        <input type="hidden" id="nameMode" value="custom">
+        <button type="button" id="nameModeButton" class="modeSelectButton" aria-haspopup="listbox" aria-expanded="false">
+          <span id="nameModeLabel">Nomes personalizados</span>
+          <span class="modeSelectChevron">⌄</span>
+        </button>
+        <div id="nameModeMenu" class="modeSelectMenu hidden" role="listbox" aria-label="Origem dos nomes">
+          <button type="button" class="modeSelectOption" data-value="random" role="option" aria-selected="false">
+            <strong>Base de dados de nomes aleatórios</strong>
+            <small>Escolhe automaticamente de names.lua.</small>
+          </button>
+          <button type="button" class="modeSelectOption" data-value="specific" role="option" aria-selected="false">
+            <strong>Nomes específicos da lista</strong>
+            <small>Escolhes exatamente quais nomes de names.lua podem aparecer.</small>
+          </button>
+          <button type="button" class="modeSelectOption selected" data-value="custom" role="option" aria-selected="true">
+            <strong>Nomes personalizados</strong>
+            <small>Escreves os nomes separados por vírgulas.</small>
+          </button>
+        </div>
+      </div>
+      <small id="databaseHint" class="hint hidden">A base inclui <span id="dbCount">0</span> nomes. Edita names.lua para a preencher.</small>
+
+      <div id="specificWrap" class="conditional hidden">
+        <div class="specificTop">
+          <label for="specificSearch">Escolher nomes da base</label>
+          <span id="specificCount" class="miniPill">0 selecionados</span>
+        </div>
+        <input type="text" id="specificSearch" placeholder="Pesquisar nome...">
+        <div class="specificActions">
+          <button type="button" id="selectVisible" class="tiny">Selecionar visíveis</button>
+          <button type="button" id="clearSpecific" class="tiny">Limpar seleção</button>
+        </div>
+        <div id="specificNames" class="nameChecklist"></div>
+        <small id="specificHint" class="hint">A versão pública começa com a base vazia. Adiciona nomes em names.lua.</small>
+      </div>
+
+      <div id="customWrap" class="conditional">
+        <label for="customNames">Nomes personalizados</label>
+        <textarea id="customNames" rows="5" placeholder="Carlos Pereira, Carlos Dias, Artur_Jorge"></textarea>
+        <small class="hint">Separa os nomes por vírgulas. Tens de fornecer nomes suficientes para a quantidade configurada.</small>
+      </div>
+
+      <div class="divider"></div>
+      <label class="check"><input type="checkbox" id="replaceEnabled"><span>Substituir bots por jogadores reais</span></label>
+      <div id="replaceWrap" class="conditional hidden">
+        <label for="replaceAt">Começar a substituir ao atingir <b id="replaceValue">25</b> pessoas</label>
+        <input type="range" id="replaceAt" min="1" max="32" value="25">
+        <small class="hint">A contagem inclui jogadores reais + bots. Cada novo jogador real remove apenas o bot necessário.</small>
+      </div>
+
+      <label class="check"><input type="checkbox" id="showTab" checked><span>Disponibilizar a lista por element data para scoreboards compatíveis</span></label>
+      <button id="save" class="primary">Aplicar e guardar</button>
+    </article>
+  </section>
+
+  <section class="panel list">
+    <div class="flex">
+      <div><h2>Jogadores virtuais apresentados</h2><p>Lista efetiva que o sistema está a anunciar neste momento.</p></div>
+      <span id="count" class="pill">0 bots</span>
+    </div>
+    <div class="tablehead"><span>NOME</span><span>ID</span><span>PING</span></div>
+    <div id="rows" class="rows"><div class="empty">À espera de dados do servidor...</div></div>
+  </section>
+
+  <footer>PlayerBots • Nexys.Tuga <span>/playerbots • ESC para fechar</span></footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<meta>
+    <info author="Nexys.Tuga" name="playerbots" version="1.0.0" type="script" description="Virtual players in the public MTA server browser" />
+    <min_mta_version client="1.6.0-9.22276.0" server="1.6.0-9.22276.0" />
+
+    <script src="names.lua" type="server" />
+    <script src="server.lua" type="server" />
+    <script src="client.lua" type="client" cache="false" />
+
+    <file src="ui/index.html" />
+    <file src="ui/style.css" />
+    <file src="ui/app.js" />
+
+    <export function="getPublicPlayerCount" type="server" />
+    <export function="getVirtualPlayerCount" type="server" />
+    <export function="getVirtualPlayers" type="server" />
+    <export function="isPlayerBotsEnabled" type="server" />
+</meta>

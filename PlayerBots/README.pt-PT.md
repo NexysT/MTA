@@ -2,52 +2,174 @@
   <img src="./assets/playerbots-banner.svg" alt="PlayerBots para MTA:SA" width="100%">
 </p>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/MTA%3ASA-1.6-36d6a6?style=flat-square&labelColor=102722" alt="MTA:SA 1.6">
+  <img src="https://img.shields.io/badge/PLATFORMS-Windows_x86_%7C_Linux_x64-7aabeb?style=flat-square&labelColor=102722" alt="Windows x86 e Linux x64">
+  <img src="https://img.shields.io/badge/LICENSE-MIT-36d6a6?style=flat-square&labelColor=102722" alt="Licença MIT">
+  <img src="https://img.shields.io/badge/SOURCE-Lua_%2B_C%2B%2B-7aabeb?style=flat-square&labelColor=102722" alt="Lua e C++">
+</p>
+
 <h1 align="center">PlayerBots</h1>
 
-<p align="center">Jogadores virtuais no browser público do <strong>Multi Theft Auto: San Andreas</strong>, em código aberto, por <strong>Nexys.Tuga</strong>.</p>
+<p align="center">
+  Jogadores virtuais open-source para o browser de servidores do <strong>Multi Theft Auto: San Andreas</strong>.<br>
+  Desenvolvido por <strong>Nexys.Tuga</strong>.
+</p>
 
-O PlayerBots permite apresentar uma quantidade configurável de jogadores virtuais no browser do MTA. A contagem pública, a lista de nomes e a validação `PingStatus` ficam coerentes, pelo que clientes MTA normais conseguem ver o mesmo resultado sem instalar um cliente modificado.
+O PlayerBots permite a um servidor anunciar um conjunto configurável de jogadores virtuais no browser do MTA. A contagem do browser, a lista de nomes de jogadores visível e a verificação interna `PingStatus` do MTA são mantidas coerentes, para que clientes MTA normais consigam ver a mesma contagem pública sem instalar um cliente modificado.
 
-O sistema **não cria ligações reais**, não adiciona jogadores a `getElementsByType("player")` e não ocupa sessões de rede reais. A alteração é feita nas respostas ASE usadas pelo browser.
+O sistema **não** cria ligações reais de jogadores, não adiciona elementos a `getElementsByType("player")` e não ocupa sessões de rede reais. O que altera são as respostas ASE utilizadas pelo browser.
 
-> **Importante:** os módulos nativos estão presos às builds de `net.dll` / `net.so` que foram testadas. Se a tua build for diferente, é necessário portar e testar o encoder antes de usar.
+> **Importante:** os módulos nativos são deliberadamente fail-closed e estão associados às builds de `net.dll` / `net.so` que foram testadas. Não reutilizes o offset fixo do encoder numa build diferente do MTA sem primeiro fazer o port e os testes necessários.
 
 [English README →](./README.md)
 
----
-
-## O que inclui
-
-- Contagem pública = jogadores reais + jogadores virtuais.
-- Nomes virtuais visíveis na lista de jogadores do browser.
-- Três modos de nomes: aleatórios da base, específicos da base ou personalizados por vírgulas.
-- `names.lua` vazio por defeito para cada servidor colocar apenas os seus próprios nomes.
-- Modo de substituição dinâmica: jogadores reais substituem bots um a um a partir de um limite configurável.
-- Painel CEF através de `/playerbots`.
-- Comando protegido por ACL através de `command.playerbots`.
-- API para scoreboards e outros resources.
-- Código-fonte C++ para Windows x86 e Linux x64.
-- Sem telemetria ou serviços externos.
-
-## Exemplo do modo substituir
-
-Se configurares 20 bots e definires «substituir aos 25», com 5 jogadores reais tens `5 + 20 = 25`. Entra mais um jogador real: fica `6 + 19 = 25`. Entra outro: `7 + 18 = 25`. Quando um real sai, o bot correspondente pode regressar até ao máximo configurado.
+A documentação em inglês e em PT-PT é mantida com o mesmo âmbito técnico e o mesmo nível de detalhe. As páginas de plataforma e a documentação técnica também têm uma versão PT-PT correspondente.
 
 ---
 
-## Instalação rápida
+## Funcionalidades
 
-1. Copia `resource/playerbots/` para os resources do servidor.
-2. Compila o módulo da tua plataforma.
-3. Coloca o binário na pasta de módulos correta.
-4. Adiciona o módulo ao `mtaserver.conf`.
-5. Reinicia o servidor.
-6. Dá `command.playerbots` ao grupo ACL que pode gerir o painel.
-7. Usa `/playerbots`.
+- Contagem pública no browser: jogadores reais + jogadores virtuais.
+- Nomes virtuais apresentados na lista de jogadores do browser.
+- Três modos de nomes:
+  - nomes aleatórios a partir de `names.lua`;
+  - nomes específicos selecionados a partir de `names.lua`;
+  - nomes personalizados, separados por vírgulas, introduzidos no painel.
+- Base pública de nomes vazia por defeito: acrescenta apenas os nomes que pretendes utilizar.
+- Modo de substituição dinâmica: os jogadores reais podem substituir jogadores virtuais, um a um, depois de ser atingido um total configurado.
+- Painel de administração CEF aberto através de `/playerbots`.
+- Comando protegido por ACL: `command.playerbots`.
+- API de servidor exportada para scoreboards ou outros resources.
+- Implementações nativas para Windows x86 e Linux x64 incluídas em código-fonte.
+- Sem telemetria nem dependência de serviços externos.
+
+## Exemplo do comportamento de substituição
+
+Configuração:
+
+```text
+Objetivo virtual: 20
+Substituir ao total: 25
+```
+
+Com 5 jogadores reais, a contagem pública é 25 (`5 + 20`). Quando entra um sexto jogador real, desaparece um jogador virtual, pelo que a contagem pública se mantém em 25 (`6 + 19`). Se entrar outro jogador real, passa a `7 + 18`, e assim sucessivamente. Quando jogadores reais saem, os jogadores virtuais são repostos automaticamente até ao objetivo configurado.
+
+---
+
+## Estrutura do repositório
+
+```text
+PlayerBots/
+├── README.md
+├── README.pt-PT.md
+├── LICENSE
+├── assets/
+│   └── playerbots-banner.svg
+├── resource/
+│   └── playerbots/
+│       ├── meta.xml
+│       ├── names.lua
+│       ├── server.lua
+│       ├── client.lua
+│       └── ui/
+│           ├── index.html
+│           ├── app.js
+│           └── style.css
+├── platforms/
+│   ├── windows-x86/
+│   │   ├── playerbots_native_windows_x86.cpp
+│   │   ├── build_x86.bat
+│   │   ├── verify_net.ps1
+│   │   ├── README.md
+│   │   └── README.pt-PT.md
+│   └── linux-x64/
+│       ├── playerbots_native_linux_x64.cpp
+│       ├── build_linux_x64.sh
+│       ├── verify_net.sh
+│       ├── README.md
+│       └── README.pt-PT.md
+└── docs/
+    ├── ARCHITECTURE.md
+    ├── ARCHITECTURE.pt-PT.md
+    ├── DEVELOPMENT-JOURNEY.md
+    ├── DEVELOPMENT-JOURNEY.pt-PT.md
+    ├── TROUBLESHOOTING.md
+    └── TROUBLESHOOTING.pt-PT.md
+```
+
+---
+
+## Compatibilidade
 
 ### Windows x86
 
-Compila em `platforms/windows-x86/`:
+A implementação para Windows foi testada exatamente com este fingerprint de `net.dll`:
+
+```text
+MTA net version: 1.6.0-9.24035.0
+SHA-256: 4293afc3e1725c52d95409ee585b45ed487cd3d397ff7ff1bfdb4786bd067659
+PE TimeDateStamp: 0x6AADC98B
+SizeOfImage: 0x00221000
+Checksum: 0x002036FC
+```
+
+O módulo valida o fingerprint PE e a assinatura de instruções antes de utilizar o encoder. Se não corresponder, o encoder permanece desativado.
+
+### Linux x64
+
+A implementação para Linux foi testada com:
+
+```text
+MTA net version: 1.6.0-9.23312.0
+SHA-256: 39d4a4f1b0b5c51ca792dc45f134c695e9083ea6ca266d61a2c3e4e085fcb56d
+```
+
+O módulo verifica `GetLibMtaVersion` e uma pequena assinatura de instruções antes de utilizar o encoder.
+
+Se a tua build for diferente, consulta [Portar para outra build do MTA](#portar-para-outra-build-do-mta).
+
+---
+
+## Instalação
+
+### 1. Instalar o resource
+
+Copia:
+
+```text
+resource/playerbots/
+```
+
+para a pasta de resources do teu MTA e mantém o nome do resource como:
+
+```text
+playerbots
+```
+
+Depois atualiza/inicia normalmente:
+
+```text
+refresh
+start playerbots
+```
+
+### 2. Compilar e instalar o módulo nativo
+
+#### Windows x86
+
+Requisitos:
+
+- Visual Studio com a carga de trabalho de desenvolvimento de desktop em C++.
+- Ferramentas de compilação MSVC x86.
+
+Abre uma Developer Command Prompt em:
+
+```text
+platforms/windows-x86/
+```
+
+e executa:
 
 ```text
 build_x86.bat
@@ -59,30 +181,25 @@ Resultado:
 build\playerbots_native.dll
 ```
 
-Destino normal:
+Copia-o para a pasta de módulos x86, normalmente:
 
 ```text
 server\mods\deathmatch\modules\playerbots_native.dll
 ```
 
-No `mtaserver.conf`:
+#### Linux x64
 
-```xml
-<module src="playerbots_native.dll" />
-```
-
-Build `net.dll` validada:
+Requisitos:
 
 ```text
-1.6.0-9.24035.0
-SHA-256 4293afc3e1725c52d95409ee585b45ed487cd3d397ff7ff1bfdb4786bd067659
+g++
+libdl
 ```
 
-### Linux x64
-
-Compila em `platforms/linux-x64/`:
+Executa:
 
 ```bash
+cd platforms/linux-x64
 chmod +x build_linux_x64.sh
 ./build_linux_x64.sh
 ```
@@ -93,37 +210,50 @@ Resultado:
 build/playerbots_native.so
 ```
 
-Destino:
+Copia-o para:
 
 ```text
 x64/modules/playerbots_native.so
 ```
 
-No `mtaserver.conf`:
+### 3. Carregar o módulo
+
+Adiciona o módulo adequado ao `mtaserver.conf`:
+
+Windows:
+
+```xml
+<module src="playerbots_native.dll" />
+```
+
+Linux:
 
 ```xml
 <module src="playerbots_native.so" />
 ```
 
-Build `net.so` validada:
+Reinicia o servidor MTA depois de alterar módulos nativos.
+
+### 4. Conceder acesso ao painel
+
+O comando é restringido pela ACL do MTA através de:
 
 ```text
-1.6.0-9.23312.0
-SHA-256 39d4a4f1b0b5c51ca792dc45f134c695e9083ea6ca266d61a2c3e4e085fcb56d
+command.playerbots
 ```
 
----
+Concede esse direito apenas aos grupos ACL que devem poder configurar o PlayerBots.
 
-## Base de nomes
+### 5. Adicionar nomes
 
-A versão pública começa vazia:
+A versão pública é distribuída intencionalmente com um `names.lua` vazio:
 
 ```lua
 PLAYERBOTS_NAMES = {
 }
 ```
 
-Podes acrescentar os teus próprios nomes:
+Acrescenta as tuas próprias entradas:
 
 ```lua
 PLAYERBOTS_NAMES = {
@@ -133,15 +263,33 @@ PLAYERBOTS_NAMES = {
 }
 ```
 
-No painel também podes escolher **Nomes personalizados** e escrever:
-
-```text
-Carlos Pereira, Carlos Dias, Artur_Jorge
-```
+Em alternativa, seleciona **Nomes personalizados** no painel e introduz os nomes separados por vírgulas.
 
 ---
 
-## API
+## Painel
+
+Executa:
+
+```text
+/playerbots
+```
+
+O painel permite a um administrador autorizado configurar:
+
+- estado ativado/desativado;
+- objetivo de jogadores virtuais;
+- nomes aleatórios, específicos ou personalizados;
+- limite de substituição dinâmica;
+- se a lista virtual é exposta através de element data para scoreboards compatíveis.
+
+As definições são guardadas em `settings.json`, no armazenamento privado e gravável do resource.
+
+---
+
+## API do servidor
+
+O resource exporta:
 
 ```lua
 exports.playerbots:getPublicPlayerCount()
@@ -150,7 +298,7 @@ exports.playerbots:getVirtualPlayers()
 exports.playerbots:isPlayerBotsEnabled()
 ```
 
-Element data disponibilizada no `root`:
+Também publica estas chaves de element data no `root`:
 
 ```text
 playerbots:enabled
@@ -162,24 +310,81 @@ playerbots:bots
 playerbots
 ```
 
+Exemplo:
+
+```lua
+local total = exports.playerbots:getPublicPlayerCount()
+local bots = exports.playerbots:getVirtualPlayers()
+```
+
 ---
 
-## Porque é que não bastava alterar o número do EYE2?
+## Como funciona
 
-Durante o desenvolvimento, o pacote EYE2 já chegava ao cliente com a quantidade virtual correta e os nomes corretos. Mesmo assim, o browser voltava a apresentar apenas os jogadores reais. Um cliente de diagnóstico permitiu observar:
+O browser do MTA recebe respostas de consulta ASE. Alterar apenas a contagem visível no EYE2 não é suficiente: posteriormente, o cliente chama `UpdatePingStatus`, que verifica/reconstrói a contagem de jogadores a partir do bloco `PingStatus` do servidor.
+
+Por isso, o PlayerBots mantém três partes coerentes:
+
+1. a contagem numérica de jogadores ASE;
+2. a lista de nomes dos jogadores;
+3. um `PingStatus` gerado pelo encoder original do módulo de rede MTA carregado, mas utilizando o total público (`reais + virtuais`).
+
+O módulo nativo interceta o caminho de saída ASE em `sendto`, reescreve apenas formatos de resposta EYE reconhecidos e deixa pacotes desconhecidos inalterados.
+
+Consulta [Arquitetura](./docs/ARCHITECTURE.pt-PT.md) para o fluxo detalhado.
+
+---
+
+## Portar para outra build do MTA
+
+**Não** alteres cegamente o RVA fixo do encoder.
+
+Um port correto deve:
+
+1. identificar a versão exata e o SHA-256 de `net.dll` / `net.so`;
+2. localizar o caminho do encoder de `GetPingStatus` para essa build;
+3. determinar a ABI do encoder e o formato da string de saída;
+4. acrescentar uma validação rigorosa por fingerprint/assinatura;
+5. testar com 0, 1 e vários jogadores reais;
+6. validar o resultado final num cliente MTA não modificado;
+7. confirmar que entradas e saídas de jogadores reais mantêm a contagem pública coerente.
+
+Os sources das plataformas existentes servem como referência, não como offsets universais.
+
+---
+
+## Notas de desenvolvimento
+
+Este projeto passou por várias iterações porque a primeira implementação parecia correta ao nível do pacote, mas o browser original continuava a corrigir a contagem apresentada para o número real. Uma build de diagnóstico do cliente mostrou a transição exata:
 
 ```text
 QUERY PRE  players=12
 QUERY POST players=1
 ```
 
-O valor era substituído em `UpdatePingStatus`. A solução final foi manter a resposta ASE inteira coerente e reutilizar o encoder original do módulo de rede MTA para produzir um `PingStatus` válido para `reais + virtuais`.
+Isso reduziu o problema a `UpdatePingStatus`. A abordagem final deixou de falsificar apenas a contagem EYE2 e passou a reutilizar o encoder original da rede MTA para criar um `PingStatus` correspondente ao total público.
 
-A documentação completa está em:
+A cronologia técnica completa está documentada em [Percurso de desenvolvimento](./docs/DEVELOPMENT-JOURNEY.pt-PT.md).
 
-- [Arquitetura](./docs/ARCHITECTURE.md)
-- [Percurso de desenvolvimento](./docs/DEVELOPMENT-JOURNEY.md)
-- [Resolução de problemas](./docs/TROUBLESHOOTING.md)
+---
+
+## Notas de segurança e operação
+
+- Faz backups antes de testar um módulo nativo num servidor de produção.
+- Um offset nativo incompatível pode provocar crash no servidor; as builds incluídas utilizam validações de versão/assinatura precisamente por esse motivo.
+- Não publiques passwords, API keys ou outros segredos num repositório de resources.
+- O PlayerBots altera apenas a apresentação no browser de servidores; não deve ser utilizado como substituto de métricas de atividade real do servidor.
+
+---
+
+## Apoio e reporte de bugs
+
+Se encontrares um bug, uma incompatibilidade com outra build do MTA ou alguma parte da documentação que não esteja clara, podes:
+
+- abrir uma issue no [repositório MTA](https://github.com/NexysT/MTA/issues) e colocar `[PlayerBots]` no início do título;
+- contactar **Nexys.Tuga** no Discord: `nobody_0101010101001`.
+
+Ao reportares um problema no módulo nativo, inclui o sistema operativo, a versão do MTA Server, a arquitetura, o SHA-256 de `net.dll` / `net.so` e a parte relevante da consola do servidor. Isso torna problemas específicos de uma build muito mais fáceis de reproduzir.
 
 ---
 
@@ -187,4 +392,4 @@ A documentação completa está em:
 
 MIT. Consulta [LICENSE](./LICENSE).
 
-Multi Theft Auto é um projeto separado. PlayerBots é um projeto comunitário independente e não é afiliado nem oficialmente suportado pela equipa do MTA.
+Multi Theft Auto é um projeto separado. O PlayerBots é um projeto comunitário independente e não é afiliado nem apoiado oficialmente pela equipa do MTA.

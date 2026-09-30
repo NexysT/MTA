@@ -1,3 +1,5 @@
+[Português (PT-PT) →](./ARCHITECTURE.pt-PT.md)
+
 # Architecture
 
 ## Goal

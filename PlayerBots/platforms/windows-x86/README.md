@@ -1,3 +1,5 @@
+[Português (PT-PT) →](./README.pt-PT.md)
+
 # Windows x86 native module
 
 This implementation targets the tested 32-bit Windows MTA server network module.

@@ -1,3 +1,5 @@
+[Português (PT-PT) →](./DEVELOPMENT-JOURNEY.pt-PT.md)
+
 # Development journey
 
 This document records the technical path that led to the current PlayerBots design. It is included because the difficult part was not adding names to a packet; it was understanding why the stock MTA browser rejected an apparently correct player count.

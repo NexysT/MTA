@@ -1,3 +1,5 @@
+[Português (PT-PT) →](./README.pt-PT.md)
+
 # Linux x64 native module
 
 This implementation targets the tested 64-bit Linux MTA network module.

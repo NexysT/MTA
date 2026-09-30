@@ -24,6 +24,8 @@ It does **not** create real player connections, does not add elements to `getEle
 
 [Português (PT-PT) →](./README.pt-PT.md)
 
+The English and PT-PT documentation are maintained with the same technical scope and level of detail. Platform and technical pages also have a matching PT-PT version.
+
 ---
 
 ## Features
@@ -365,6 +367,17 @@ The full technical timeline is documented in [Development journey](./docs/DEVELO
 - A mismatched native offset can crash a server; the included builds use version/signature guards for this reason.
 - Do not expose passwords, API keys or other secrets in a resource repository.
 - PlayerBots changes server-browser presentation only; it should not be used as a substitute for real server activity metrics.
+
+---
+
+## Support and bug reports
+
+If you find a bug, an incompatibility with another MTA build or something in the documentation that is unclear, you can:
+
+- open an issue in the [MTA repository](https://github.com/NexysT/MTA/issues) and prefix the title with `[PlayerBots]`;
+- contact **Nexys.Tuga** on Discord: `nobody_0101010101001`.
+
+When reporting a native-module problem, include the operating system, MTA server version, architecture, the SHA-256 of `net.dll` / `net.so`, and the relevant server-console output. That makes build-specific problems much easier to reproduce.
 
 ---
 

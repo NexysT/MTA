@@ -80,15 +80,22 @@ PlayerBots/
 │   ├── windows-x86/
 │   │   ├── playerbots_native_windows_x86.cpp
 │   │   ├── build_x86.bat
-│   │   └── verify_net.ps1
+│   │   ├── verify_net.ps1
+│   │   ├── README.md
+│   │   └── README.pt-PT.md
 │   └── linux-x64/
 │       ├── playerbots_native_linux_x64.cpp
 │       ├── build_linux_x64.sh
-│       └── verify_net.sh
+│       ├── verify_net.sh
+│       ├── README.md
+│       └── README.pt-PT.md
 └── docs/
     ├── ARCHITECTURE.md
+    ├── ARCHITECTURE.pt-PT.md
     ├── DEVELOPMENT-JOURNEY.md
-    └── TROUBLESHOOTING.md
+    ├── DEVELOPMENT-JOURNEY.pt-PT.md
+    ├── TROUBLESHOOTING.md
+    └── TROUBLESHOOTING.pt-PT.md
 ```
 
 ---

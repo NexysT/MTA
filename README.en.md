@@ -1,6 +1,6 @@
 <picture>
   <source media="(max-width: 600px)" srcset="./assets/mta-banner-mobile.svg">
-  <img src="./assets/mta-banner.svg" alt="MTA:SA — NexysT. Native modules e Lua resources." width="100%">
+  <img src="./assets/mta-banner.svg" alt="MTA:SA — NexysT. Native modules and Lua resources." width="100%">
 </picture>
 
 

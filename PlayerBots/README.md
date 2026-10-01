@@ -1,6 +1,6 @@
 <picture>
   <source media="(max-width: 600px)" srcset="./assets/playerbots-banner-mobile.svg">
-  <img src="./assets/playerbots-banner.svg" alt="PlayerBots — NexysT. Native systems e integração MTA:SA." width="100%">
+  <img src="./assets/playerbots-banner.svg" alt="PlayerBots — NexysT. Native systems and MTA:SA integration." width="100%">
 </picture>
 
 

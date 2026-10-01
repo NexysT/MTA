@@ -1,86 +1,89 @@
-<p align="center">
-  <img src="./assets/mta-banner.svg" alt="MTA Portugal: recursos para Multi Theft Auto, por NexysT" width="100%">
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/MTA-San_Andreas-36d6a6?style=flat-square&labelColor=102722" alt="Multi Theft Auto: San Andreas">
-  <img src="https://img.shields.io/badge/LUA-Recursos-7aabeb?style=flat-square&labelColor=102722" alt="Lua">
-  <img src="https://img.shields.io/badge/IDIOMA-PT--PT-36d6a6?style=flat-square&labelColor=102722" alt="PT-PT">
-  <a href="https://github.com/NexysT"><img src="https://img.shields.io/badge/GITHUB-NexysT-7aabeb?style=flat-square&labelColor=102722" alt="Perfil de NexysT"></a>
-</p>
-
-<h1 align="center">MTA Portugal</h1>
-
-<p align="center">
-  Os recursos em que vou trabalhando para o <strong>Multi Theft Auto: San Andreas</strong>, reunidos no mesmo sítio.
-</p>
-
-Este repositório é a minha forma de ter os projetos do MTA Portugal organizados sem misturar tudo numa pasta gigante. Cada recurso tem a sua própria página, com uma explicação do que faz, os ficheiros necessários e instruções para o instalar. Assim, quem chega aqui pela primeira vez consegue perceber o que está a descarregar antes de o meter no servidor.
-
-Começo pelo painel de administração, que foi o recurso que andei a alterar: traduzi a interface para PT-PT e fui-lhe acrescentando ferramentas para a gestão e para o desenvolvimento do servidor.
-
----
-
-## O que já está aqui?
+<picture>
+  <source media="(max-width: 600px)" srcset="./assets/mta-banner-mobile.svg">
+  <img src="./assets/mta-banner.svg" alt="MTA:SA — NexysT. Native modules e Lua resources." width="100%">
+</picture>
 
 
-### [PlayerBots →](./PlayerBots/)
 
-Projeto open-source para apresentar **jogadores virtuais no browser público do MTA** sem criar ligações reais ao servidor.
+[Português](./README.md) · [English](./README.en.md)
 
-- Contagem pública coerente: jogadores reais + virtuais.
-- Nomes virtuais visíveis na lista do browser.
-- Painel CEF com nomes aleatórios, específicos ou personalizados.
-- Modo de substituição dinâmica: jogadores reais podem substituir bots um a um.
-- Código-fonte Lua + C++ para **Windows x86** e **Linux x64**.
-- Documentação técnica sobre ASE, EYE2, `PingStatus`, compatibilidade e portabilidade entre builds.
+# MTA:SA — recursos e integração nativa
 
-**[Abrir o PlayerBots, ver o código e seguir a instalação →](./PlayerBots/)**
+Projetos de **NexysT** para o **Multi Theft Auto: San Andreas**, com documentação e ficheiros organizados por recurso. O destaque é **PlayerBots**: módulos nativos em C++ e integração Lua com o browser de servidores, acompanhados por um painel de administração adaptado para o MTA Portugal.
 
----
+## PlayerBots
+
+### [Integração nativa com o browser do MTA:SA →](./PlayerBots/)
+
+O PlayerBots apresenta jogadores virtuais no browser público do MTA sem criar ligações reais ao servidor. Mantém coerentes a contagem pública, a lista de nomes e o `PingStatus` utilizado pelo cliente original.
+
+- **C++ + Lua:** módulos nativos, resource e painel CEF.
+- **Windows x86 / Linux x64:** implementações distintas, com hooking de `sendto` por IAT ou PLT/GOT.
+- **Análise low-level e debugging:** investigação de ASE/EYE2 e da verificação `UpdatePingStatus`, instrumentação do cliente MTA e reutilização do encoder de rede original.
+- **Configuração:** nomes aleatórios, específicos ou personalizados; jogadores reais podem substituir virtuais um a um através do modo dinâmico.
+- **Código e documentação:** fontes, scripts de compilação por plataforma e documentação técnica sobre arquitetura, compatibilidade e portabilidade.
+
+> Os módulos nativos estão associados às builds testadas de `net.dll` / `net.so`. A utilização noutra build exige port e testes; as validações de versão/fingerprint e assinatura protegem o acesso ao encoder.
+
+**[Código, compatibilidade e instalação](./PlayerBots/)** · [Arquitetura](./PlayerBots/docs/ARCHITECTURE.pt-PT.md) · [Percurso de desenvolvimento](./PlayerBots/docs/DEVELOPMENT-JOURNEY.pt-PT.md)
+
+## Painel de administração
 
 ### [Painel Administração | MTA Portugal →](./Painel-Administracao-MTA-Portugal/)
 
-É uma versão adaptada do painel `admin` do MTA, com as funcionalidades tradicionais e algumas coisas que me faziam falta no dia a dia:
+Versão adaptada do resource `admin` do MTA. A interface foi traduzida e foram acrescentadas ferramentas para a gestão e o desenvolvimento do servidor:
 
-- Interface em PT-PT, com menus e botões ajustados ao espaço do painel.
+- Interface em português, com menus e botões ajustados ao espaço do painel.
 - Consulta de jogadores, ações administrativas, recursos, mapas, banimentos e opções do servidor.
-- **Depuração:** uma aba para acompanhar avisos, erros e mensagens recebidas pelo painel, sem andar sempre a trocar de janela.
-- **Comandos:** selecionas um resource e consultas os comandos que estão registados.
-- **ACL:** uma forma mais visual de trabalhar com cargos, contas e permissões, sem depender apenas da janela tradicional de ACL.
-- **Admin anónimo:** nas ações abrangidas por este modo, as mensagens públicas não identificam quem as executou. O registo interno continua a guardar a identidade do administrador.
+- **Depuração:** aba para acompanhar avisos, erros e mensagens recebidas pelo painel.
+- **Comandos:** seleção de um resource e consulta dos comandos registados.
+- **ACL:** gestão visual de cargos, contas e permissões.
+- **Admin anónimo:** nas ações abrangidas, as mensagens públicas não identificam quem as executou; o registo interno conserva a identidade do administrador.
 
-**[Ver o painel, conhecer as funcionalidades e ler a instalação →](./Painel-Administracao-MTA-Portugal/)**
+**[Funcionalidades, instalação e permissões →](./Painel-Administracao-MTA-Portugal/)**
 
----
+## Descarregar e instalar
 
-## Quero descarregar um recurso. Onde carrego?
+Abre primeiro a página do projeto que queres experimentar:
 
-Se queres experimentar um recurso, abre primeiro a respetiva página. O [PlayerBots](./PlayerBots/) inclui código-fonte, builds por plataforma e documentação técnica; o [Painel Administração](./Painel-Administracao-MTA-Portugal/) inclui a estrutura, a instalação e os cuidados com permissões.
+- [PlayerBots](./PlayerBots/): código-fonte, compilação dos módulos nativos, compatibilidade por plataforma e instalação do resource.
+- [Painel Administração](./Painel-Administracao-MTA-Portugal/): estrutura, instalação e cuidados com permissões.
 
-No GitHub, também podes usar o botão verde **Code → Download ZIP**. Esse botão descarrega **o repositório inteiro**, não só o painel. Depois de extraires, entra em `Painel-Administracao-MTA-Portugal/admin/`: é essa pasta `admin` que interessa ao servidor MTA.
+No GitHub, **Code → Download ZIP** descarrega **o repositório inteiro**. Para instalar o painel, extrai o ZIP e utiliza a pasta:
 
-> Não é preciso mudar o nome do resource para «Painel Administração». Esse é o nome da página no GitHub; no jogo, o resource continua a chamar-se `admin`.
+```text
+Painel-Administracao-MTA-Portugal/admin/
+```
 
-## Porque é que os scripts se chamam `.lua`?
+O resource continua a chamar-se `admin` no servidor; não o renomeies para «Painel Administração». Para o PlayerBots, segue os passos próprios de compilação e instalação na respetiva página.
 
-É normal. Os scripts da versão publicada foram preparados em formato compilado; conservaram a extensão `.lua` para não obrigar a alterar os caminhos do `meta.xml`. A extensão do ficheiro não te diz, por si só, se o conteúdo é código-fonte legível.
+### Scripts compilados do painel
 
-A compilação e a ofuscação tornam a leitura e a reutilização direta do código mais difíceis, mas não são uma garantia de que ninguém o consiga analisar. Não publiques passwords, tokens ou outros segredos dentro de um resource, mesmo quando os scripts estão compilados.
+Os scripts da versão publicada do painel foram preparados em formato compilado e conservaram a extensão `.lua`, para manter os caminhos do `meta.xml`. A extensão do ficheiro não indica, por si só, se o conteúdo é código-fonte legível.
 
----
+A compilação e a ofuscação dificultam a leitura e a reutilização direta do código, mas não garantem que ninguém o consiga analisar. Não publiques passwords, tokens ou outros segredos dentro de um resource, mesmo quando os scripts estão compilados.
 
-## Como está organizado?
+## Organização e origem
 
 ```text
 MTA/
-├── README.md                         ← esta página
+├── README.md
+├── README.en.md
 ├── assets/
-│   └── mta-banner.svg                ← imagem do repositório
+│   └── mta-banner.svg
+├── PlayerBots/
+│   ├── README.md
+│   ├── README.pt-PT.md
+│   ├── LICENSE
+│   ├── resource/playerbots/
+│   ├── platforms/
+│   │   ├── windows-x86/
+│   │   └── linux-x64/
+│   └── docs/
 └── Painel-Administracao-MTA-Portugal/
-    ├── README.md                     ← página e instruções do painel
-    ├── LICENSE-MTA.txt               ← licença da base original
-    └── admin/                         ← resource para o servidor
+    ├── README.md
+    ├── LICENSE-MTA.txt
+    └── admin/
         ├── meta.xml
         ├── admin_definitions.lua
         ├── client/
@@ -89,17 +92,11 @@ MTA/
         └── ...
 ```
 
-Quando acrescentar outros recursos, ficam ao lado de `Painel-Administracao-MTA-Portugal/`, cada um com a sua documentação. Não ficam misturados com o código do Admin.
+Cada recurso mantém a sua documentação e os seus ficheiros na própria pasta. Novos recursos ficam ao lado dos existentes, sem misturar o respetivo código.
 
----
+O painel deriva do resource `admin` do [projeto oficial mtasa-resources](https://github.com/multitheftauto/mtasa-resources). Os créditos e a licença MIT da base original estão na [página do painel](./Painel-Administracao-MTA-Portugal/). As alterações, a tradução e as novas ferramentas foram desenvolvidas para o **MTA Portugal (NexysT)**.
 
-## Créditos
+O PlayerBots é um projeto comunitário independente, com [licença MIT](./PlayerBots/LICENSE) e documentação própria. Não é afiliado nem apoiado oficialmente pela equipa do MTA.
 
-O painel parte de um recurso já existente no [projeto oficial mtasa-resources](https://github.com/multitheftauto/mtasa-resources), e não de um painel escrito integralmente do zero. Os créditos e a licença MIT da base original estão na [página do Admin](./Painel-Administracao-MTA-Portugal/).
+[Perfil NexysT ↗](https://github.com/NexysT)
 
-As alterações, a tradução e as novas ferramentas aqui apresentadas fazem parte do trabalho desenvolvido para o **MTA Portugal (NexysT)**.
-
-<p align="center">
-  <a href="https://github.com/NexysT"><strong>Voltar ao meu perfil no GitHub ↗</strong></a>
-</p>
-<p align="center"><sub>NexysT · MTA Portugal · PT-PT</sub></p>
